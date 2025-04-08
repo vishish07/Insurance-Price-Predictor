@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Price Prediction</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS for Black and Blue Theme with Rainbow Text -->
+    <style>
+        body {
+            background-color: #000; /* Black background color */
+            color: #fff; /* White text color */
+            padding-top: 56px; /* Padding to account for fixed navbar height */
+        }
+        .navbar {
+            background-color: #002b36; /* Dark blue background for navbar */
+        }
+        .navbar-brand, .nav-link {
+            color: #ffffff; /* White text for navbar items */
+        }
+        .navbar-brand:hover, .nav-link:hover {
+            color: #00bfff; /* Light blue text on hover */
+        }
+        .container {
+            background-color: #001f3f; /* Darker blue color for container */
+            padding: 2rem;
+            border-radius: 0.5rem;
+        }
+        .form-control, .form-check-input, .form-control:focus, select.form-control:focus {
+            background-color: #003366; /* Dark blue background for form elements */
+            color: #fff; /* White text */
+            border-color: #0056b3; /* Blue border color */
+        }
+        .form-control::placeholder {
+            color: #ffffff; /* White placeholder text */
+            opacity: 1; /* Override default opacity */
+        }
+        .form-check-label {
+            color: #fff; /* White text for labels */
+        }
+        .btn-primary {
+            background-color: #0056b3; /* Blue background for submit button */
+            border-color: #0056b3; /* Border color matching button background */
+        }
+        .btn-primary:hover {
+            background-color: #003d7a; /* Darker blue on hover */
+            border-color: #003d7a; /* Darker border on hover */
+        }
+        .alert-info {
+            background-color: #0056b3; /* Match blue color for alerts */
+            color: #fff; /* White text */
+        }
+        .form-group label {
+            color: #ffffff; /* White text for form labels */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <a class="navbar-brand" href="#">Insurance App</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h2 class="text-center">Insurance Price Prediction</h2>
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" class="form-control" id="age" name="age" placeholder="Enter your age" required>
+            </div>
+
+            <div class="form-group">
+                <label for="bmi">BMI:</label>
+                <input type="number" step="0.01" class="form-control" id="bmi" name="bmi" placeholder="Enter your BMI" required>
+            </div>
+
+            <div class="form-group">
+                <label for="children">Children:</label>
+                <select class="form-control" id="children" name="children" required>
+                    <option value="" disabled selected>Select number of children</option>
+                    <!-- Options from 0 to 10 for number of children -->
+                    <script>
+                        for (let i = 0; i <= 10; i++) {
+                            document.write(`<option value="${i}">${i}</option>`);
+                        }
+                    </script>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="sex">Sex:</label>
+                <select class="form-control" id="sex" name="sex" required>
+                    <option value="" disabled selected>Select your sex</option>
+                    <option value="1">Male</option>
+                    <option value="0">Female</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="smoker">Smoker:</label>
+                <select class="form-control" id="smoker" name="smoker" required>
+                    <option value="" disabled selected>Select if you are a smoker</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="region">Region:</label>
+                <select id="region" name="region" class="form-control" required>
+                    <option value="" disabled selected>Select your region</option>
+                    <option value="1">Northeast</option>
+                    <option value="2">Northwest</option>
+                    <option value="3">Southeast</option>
+                    <option value="4">Southwest</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
